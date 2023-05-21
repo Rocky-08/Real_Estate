@@ -1,10 +1,15 @@
 import React from 'react';
+import NavBar from './Navbar/NavBar';
+import FirstMainDiv from './FirstMainDiv/FirstMainDiv';
+import SecondDivCards from './SecondDivCards/SecondDivCards'
 
-import NavBar from './NavBar'
-
-const App = () =>{
+const App = () => {
   return (
-    <NavBar />
+    <>
+      <NavBar />
+      <FirstMainDiv />
+      <SecondDivCards />
+    </>
   )
 }
 
