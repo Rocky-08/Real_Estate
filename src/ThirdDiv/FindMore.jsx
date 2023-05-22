@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Grid, useMediaQuery, useTheme } from "@material-ui/core";
 import useStyles from "../styles";
-
 import MainHeading from "./MainHeading";
 import Para from "./Para";
 import FindButton from "./FindButton";
