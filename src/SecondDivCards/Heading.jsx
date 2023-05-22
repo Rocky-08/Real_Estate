@@ -1,7 +1,7 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
+import { Typography , Fab } from '@material-ui/core';
 import useStyles from '../styles';
-
+import { Search } from '@material-ui/icons';
 const Heading = () => {
     const classes = useStyles();
     return (
@@ -9,7 +9,12 @@ const Heading = () => {
             <div gutterbottom>
                 <Typography variant="h4" className={classes.text} color="textSecondary" paragraph>
                     Best PG's Near Your Colleges
+                                   <Fab variant="extended" size="small" aria-label="add" style={{float:'right',color:'white',backgroundColor:'green'}}>
+                <Search sx={{ mr: 1 }} />
+                 Find Now
+               </Fab> 
                 </Typography>
+
             </div>
         </>
     )
