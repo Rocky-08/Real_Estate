@@ -10,7 +10,7 @@ const Needs = () => {
   const isMatch = useMediaQuery(theme.breakpoints.up("md"));
   return (
     <>
-      <main style={{ backgroundColor: "#EEEEEE", paddingTop: "4rem" }}>
+      <main style={{ backgroundColor: "white", paddingTop: "4rem" }}>
         <Container>
           <Grid container spacing={2} justifyContent="center">
             {isMatch ? (

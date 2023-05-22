@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Grid, Card, CardMedia, CardContent } from '@material-ui/core';
+import { Container, Typography, Grid, Card, CardMedia, CardContent, CardActionArea } from '@material-ui/core';
 import useStyles from '../styles';
 
 
@@ -21,6 +21,7 @@ const FirstMainDivCards = () => {
           {
             MainContent.map((page, index) => (
               <Grid item xs={12} sm={6} md={4}>
+                <CardActionArea>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
@@ -34,6 +35,7 @@ const FirstMainDivCards = () => {
 
                   </CardContent>
                 </Card>
+                </CardActionArea>
               </Grid>
             ))
           }
