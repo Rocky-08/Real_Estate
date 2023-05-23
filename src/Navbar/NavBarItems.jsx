@@ -15,7 +15,7 @@ import DrawerComp from "./DrawerComp";
 import { HomeWorkOutlined } from "@material-ui/icons";
 
 const Pages = ["Home", "About Us", "Contact Us", "Policy"];
-const NavBarItems = () => {
+const NavBarItems = (prop) => {
   const [value, setValue] = useState();
 
   const theme = useTheme();
@@ -29,7 +29,7 @@ const NavBarItems = () => {
         <Toolbar>
           <HomeWorkOutlined style={{ color: "orange" }} />
           <Typography variant="h6" style={{ color: "black" }}>
-            Pg Seekers
+            StayNearU
           </Typography>
 
           {isMatch ? (
@@ -66,6 +66,7 @@ const NavBarItems = () => {
                   backgroundColor: "#388e3c",
                   borderRadius: "2rem",
                 }}
+                onClick={prop.func}
               >
                 Sign up
               </Button>

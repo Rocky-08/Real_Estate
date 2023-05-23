@@ -6,7 +6,12 @@ import SocialLinks from "./SocialLinks";
 const AboutUs = () => {
   return (
     <>
-      <main style={{ backgroundColor: "white", paddingTop: "4rem" }}>
+      <main
+        style={{
+          backgroundColor: "white",
+          paddingTop: "4rem",
+        }}
+      >
         <Container maxWidth="md">
           <AboutUsInfo />
           <hr style={{ marginTop: "3rem", border: "1px solid black" }} />
