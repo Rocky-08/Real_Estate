@@ -3,6 +3,8 @@ import SignUp from "./SignUp/SignUp";
 import LoginPage from "./Login/LoginPage";
 import SuccessMessage from "./Login/SuccessMessage";
 import MainPage from "./MainPage";
+import FilterFeature from "./Display cards/FilterFeature";
+import NavBar from "./Navbar/NavBar";
 
 const App = () => {
   const [showMain, setShowMain] = useState(true);
@@ -12,6 +14,20 @@ const App = () => {
   const [openLogin, setOpenLogin] = useState(false);
 
   const [alert, setAlert] = useState(null);
+
+  const [clickCard, setClickCard] = useState(false);
+
+  const [filter, setFilter] = useState(false);
+
+  let handleFilter = () => {
+    setFilter(!filter);
+  };
+
+  let handleCard = () => {
+    setClickCard(true);
+    setShowMain(false);
+    console.log("card click hogya");
+  };
 
   let showAlert = (message, type) => {
     setAlert({
@@ -41,10 +57,6 @@ const App = () => {
     console.log("login Page open");
   };
 
-  let handleCloseLogin = () => {
-    console.log("login Page open");
-  };
-
   let handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -62,16 +74,25 @@ const App = () => {
     <>
       <SuccessMessage alert={alert} />
       {showMain && (
-        <MainPage openFun={handleClickOpen} openLoginPage={handleOpenLogin} />
+        <MainPage
+          openFun={handleClickOpen}
+          openLoginPage={handleOpenLogin}
+          openCard={handleCard}
+        />
       )}
-      <SignUp dialOpen={open} closeFunc={handleClickClose} />;
+      <SignUp dialOpen={open} closeFunc={handleClickClose} />
       {openLogin && (
         <LoginPage
           loginOpen={openLogin}
-          loginClose={handleCloseLogin}
           displayAlert={showAlert}
           submitHandle={handleSubmit}
         />
+      )}
+      {clickCard && (
+        <>
+          <NavBar />{" "}
+          <FilterFeature openFilterBox={handleFilter} filter={filter} />
+        </>
       )}
     </>
   );
