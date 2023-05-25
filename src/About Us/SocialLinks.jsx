@@ -6,7 +6,7 @@ const SocialLinks = () => {
   return (
     <>
       <Container style={{ marginTop: "3rem" }}>
-        <Typography variant="h6" align="center" style={{ fontWeight: "bold" }}>
+        <Typography variant="h5" align="center" style={{ fontWeight: "bold" }}>
           Social Links
         </Typography>
 

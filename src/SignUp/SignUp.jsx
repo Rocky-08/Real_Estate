@@ -11,13 +11,13 @@ import SignUpHeading from "./SignUpHeading";
 import SignUpCard from "./SignUpCard";
 import LogInHeading from "./LogInHeading";
 
-const SignUp = (prop) => {
+const SignUp = (props) => {
   return (
     <>
       <div>
-        <Dialog open={prop.dialOpen} onClose={prop.closeFunc}>
+        <Dialog open={props.dialOpen} onClose={props.closeFunc}>
           <DialogTitle>
-            <CloseButton closeFunction={prop.closeFunc} />
+            <CloseButton closeFunction={props.closeFunc} />
             <SignUpHeading />
           </DialogTitle>
 

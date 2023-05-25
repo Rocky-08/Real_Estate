@@ -11,28 +11,7 @@ const defaultTheme = createTheme();
 
 let submitDone = false;
 
-const LoginPage = () => {
-  let [submit, setSubmit] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-
-    setSubmit(true);
-  };
-
-  if (submit == true) {
-    return (
-      <>
-        <App />
-      </>
-    );
-  }
-
+const LoginPage = (prop) => {
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
@@ -48,7 +27,10 @@ const LoginPage = () => {
             }}
           >
             <LoginHeading />
-            <LoginForm submitFunc={handleSubmit} />
+            <LoginForm
+              submitFunc={prop.submitHandle}
+              loginClose={prop.loginClose}
+            />
           </Box>
         </Container>
       </ThemeProvider>

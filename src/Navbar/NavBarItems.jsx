@@ -78,6 +78,7 @@ const NavBarItems = (prop) => {
                   borderRadius: "2rem",
                   marginLeft: "10px",
                 }}
+                onClick={prop.login}
               >
                 Login
               </Button>

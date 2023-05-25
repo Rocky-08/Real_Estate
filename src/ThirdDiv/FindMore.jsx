@@ -38,10 +38,10 @@ const FindMore = () => {
                     <FindButton />
                   </Grid>
 
-                  <Grid item justifyItem="right" md={4}>
+                  <Grid item md={4}>
                     <img
                       className={classes.FindDivImg}
-                      style={{ maxWidth: "100%", maxHeight: "80%" }}
+                      style={{ maxWidth: "100%", maxHeight: "90%" }}
                       src="https://img.freepik.com/free-vector/cute-people-playing-laptop-cartoon-vector-icon-illustration-people-technology-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4043.jpg?w=740&t=st=1684736430~exp=1684737030~hmac=eb0ab9f09031d4f0f2abe0b4a3ced25e7b871ecd9460612d58ec23203db4c5fa"
                     />
                   </Grid>

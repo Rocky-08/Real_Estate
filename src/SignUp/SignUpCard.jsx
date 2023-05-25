@@ -29,7 +29,7 @@ const SignUpCard = () => {
                   >
                     I'm A {data}
                   </Typography>
-                  <Typography variant="body1" align="center">
+                  <Typography variant="button" align="center">
                     If You Are A {data} Click Here
                   </Typography>
                 </CardContent>
