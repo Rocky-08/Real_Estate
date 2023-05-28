@@ -14,7 +14,12 @@ import {
 import DrawerComp from "./DrawerComp";
 import { HomeWorkOutlined } from "@material-ui/icons";
 
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import Buttons from "./Buttons";
+
 const Pages = ["Home", "About Us", "Contact Us", "Policy"];
+
 const NavBarItems = (prop) => {
   const [value, setValue] = useState();
 
@@ -24,11 +29,16 @@ const NavBarItems = (prop) => {
 
   return (
     <>
-      <CssBaseline />
-      <AppBar position="relative" style={{ backgroundColor: "White" }}>
+      <AppBar
+        position="relative"
+        style={{ backgroundColor: prop.check ? "#272727" : "white" }}
+      >
         <Toolbar>
           <HomeWorkOutlined style={{ color: "orange" }} />
-          <Typography variant="h6" style={{ color: "black" }}>
+          <Typography
+            variant="h6"
+            style={{ color: prop.check ? "white" : "#272727" }}
+          >
             StayNearU
           </Typography>
 
@@ -39,7 +49,10 @@ const NavBarItems = (prop) => {
           ) : (
             <>
               <Tabs
-                style={{ marginLeft: "auto", color: "black" }}
+                style={{
+                  marginLeft: "auto",
+                  color: prop.check ? "white" : "#272727",
+                }}
                 value={value}
                 onChange={(e, value) => {
                   setValue(value);
@@ -57,33 +70,34 @@ const NavBarItems = (prop) => {
                 ))}
               </Tabs>
 
-              <Button
-                variant="h6"
-                color="secondary"
-                style={{
-                  marginLeft: "auto",
-                  color: "white",
-                  backgroundColor: "#388e3c",
-                  borderRadius: "2rem",
-                }}
-                onClick={prop.func}
-              >
-                Sign up
-              </Button>
-              <Button
-                variant="h6"
-                style={{
-                  backgroundColor: "#e53935",
-                  color: "white",
-                  borderRadius: "2rem",
-                  marginLeft: "10px",
-                }}
-                onClick={prop.login}
-              >
-                Login
-              </Button>
+              <Buttons
+                text="Sign Up"
+                backColor="#388e3c"
+                func={prop.func}
+                mrg="auto"
+              />
+              <Buttons
+                text="Login"
+                backColor="#e53935"
+                func={prop.login}
+                mrg="10px"
+              />
             </>
           )}
+
+          <Button>
+            {prop.check ? (
+              <LightModeIcon
+                style={{ color: "White" }}
+                onClick={prop.handledark}
+              />
+            ) : (
+              <DarkModeIcon
+                style={{ color: "black" }}
+                onClick={prop.handledark}
+              />
+            )}
+          </Button>
         </Toolbar>
       </AppBar>
     </>

@@ -5,6 +5,7 @@ import SecondDivCards from "./SecondDivCards/SecondDivCards";
 import FindMore from "./ThirdDiv/FindMore";
 import Needs from "./Needs/Needs";
 import AboutUs from "./About Us/AboutUs";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const MainPage = (prop) => {
   return (
@@ -13,12 +14,14 @@ const MainPage = (prop) => {
         openFun={prop.openFun}
         openLoginPage={prop.openLoginPage}
         show={prop.show}
+        handledark={prop.handledark}
+        check={prop.check}
       />
       <FirstMainDiv />
-      <SecondDivCards />
-      <FindMore />
+      <SecondDivCards openCard={prop.openCard} />
+      <FindMore check={prop.check} />
       <Needs />
-      <AboutUs />
+      <AboutUs check={prop.check} />
     </>
   );
 };

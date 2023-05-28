@@ -5,14 +5,17 @@ import MainHeading from "./MainHeading";
 import Para from "./Para";
 import FindButton from "./FindButton";
 
-const FindMore = () => {
+const FindMore = (prop) => {
   const classes = useStyles();
   const theme = useTheme();
 
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <>
-      <main className={classes.FindDiv}>
+      <main
+        className={classes.FindDiv}
+        style={{ backgroundColor: prop.check ? "#8B8000" : "#fff59e" }}
+      >
         <Container maxWidth="lg">
           <div>
             <Grid container spacing={2} justifyContent="center">

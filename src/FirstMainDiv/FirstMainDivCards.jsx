@@ -7,7 +7,7 @@ import {
   CardMedia,
   CardContent,
   CardActionArea,
-} from "@material-ui/core";
+} from "@mui/material";
 import useStyles from "../styles";
 
 const MainContent = [
@@ -39,7 +39,7 @@ const FirstMainDivCards = () => {
                     title="Random Image"
                   />
 
-                  <CardContent className={classes.cardContent} align="center">
+                  <CardContent align="center">
                     <Typography variant="h5">{page.imageContent}</Typography>
                   </CardContent>
                 </Card>

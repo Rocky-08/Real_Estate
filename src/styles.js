@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   text: {
-    color: "black",
     fontWeight: "bold",
     marginTop: "30px",
   },
@@ -15,14 +14,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "56.25%",
     cusror: "initial",
   },
-  cardContent: {
-    backgroundColor: "white",
-    color: "black",
-  },
 
   FindDiv: {
     padding: "3rem",
-    backgroundColor: "#fff59e",
+
     marginTop: "3rem",
   },
 

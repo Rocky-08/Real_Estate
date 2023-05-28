@@ -6,28 +6,28 @@ import {
   CardMedia,
   CardContent,
   CardActionArea,
-} from "@material-ui/core";
+} from "@mui/material";
 import useStyles from "../styles";
 import CardsData from "./CardsData";
 import { LocationOnOutlined } from "@material-ui/icons";
 
-const Cards = () => {
+const Cards = (prop) => {
   const classes = useStyles();
   return (
     <>
       <Grid container spacing={4} justifyContent="center">
         {CardsData.map((page, index) => (
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} onClick={prop.openCard}>
             <CardActionArea>
-              <Card className={classes.card}>
+              <Card>
                 <CardMedia
                   className={classes.cardMedia}
                   image={page.imageUrl}
                   title="Random Image"
                 />
 
-                <CardContent className={classes.cardContent} align="left">
-                  <Typography variant="button" component="div">
+                <CardContent align="left">
+                  <Typography variant="body2" component="div">
                     {page.CollegeName} {page.CollegeCity}{" "}
                     {`(${page.AvailablePGs} PG's)`}
                   </Typography>

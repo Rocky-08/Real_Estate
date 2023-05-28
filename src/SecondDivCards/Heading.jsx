@@ -7,12 +7,7 @@ const Heading = () => {
   return (
     <>
       <div>
-        <Typography
-          variant="h4"
-          className={classes.text}
-          color="textSecondary"
-          paragraph
-        >
+        <Typography variant="h4" className={classes.text} paragraph>
           Best PG's Near Your Colleges
           <Fab
             variant="extended"

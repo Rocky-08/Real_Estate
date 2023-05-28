@@ -5,6 +5,9 @@ import SuccessMessage from "./Login/SuccessMessage";
 import MainPage from "./MainPage";
 import FilterFeature from "./Display cards/FilterFeature";
 import NavBar from "./Navbar/NavBar";
+import ResetPassword from "./Reset Password/ResetPassword";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const App = () => {
   const [showMain, setShowMain] = useState(true);
@@ -18,6 +21,14 @@ const App = () => {
   const [clickCard, setClickCard] = useState(false);
 
   const [filter, setFilter] = useState(false);
+
+  const [resetPassword, setResetPassword] = useState(false);
+
+  const [darkMode, setDarkmode] = useState(false);
+
+  const darkTheme = createTheme({
+    palette: { mode: darkMode ? "dark" : "light" },
+  });
 
   let handleFilter = () => {
     setFilter(!filter);
@@ -70,30 +81,71 @@ const App = () => {
     setOpenLogin(false);
   };
 
+  let openReset = () => {
+    setResetPassword(true);
+    setShowMain(false);
+    setOpenLogin(false);
+  };
+
+  let handleReset = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+      newPass: data.get("confirmPassword"),
+    });
+
+    setShowMain(true);
+    setResetPassword(false);
+  };
+
+  let handleDark = () => {
+    setDarkmode(!darkMode);
+    console.log(darkMode);
+  };
+
   return (
     <>
-      <SuccessMessage alert={alert} />
-      {showMain && (
-        <MainPage
-          openFun={handleClickOpen}
-          openLoginPage={handleOpenLogin}
-          openCard={handleCard}
-        />
-      )}
-      <SignUp dialOpen={open} closeFunc={handleClickClose} />
-      {openLogin && (
-        <LoginPage
-          loginOpen={openLogin}
-          displayAlert={showAlert}
-          submitHandle={handleSubmit}
-        />
-      )}
-      {clickCard && (
-        <>
-          <NavBar />{" "}
-          <FilterFeature openFilterBox={handleFilter} filter={filter} />
-        </>
-      )}
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <SuccessMessage alert={alert} />
+        {showMain && (
+          <MainPage
+            openFun={handleClickOpen}
+            openLoginPage={handleOpenLogin}
+            openCard={handleCard}
+            handledark={handleDark}
+            check={darkMode}
+          />
+        )}
+        <SignUp dialOpen={open} closeFunc={handleClickClose} />
+        {openLogin && (
+          <LoginPage
+            loginOpen={openLogin}
+            displayAlert={showAlert}
+            submitHandle={handleSubmit}
+            handlereset={openReset}
+          />
+        )}
+        {clickCard && (
+          <>
+            <NavBar check={darkMode} handledark={handleDark} />
+            <FilterFeature
+              openFilterBox={handleFilter}
+              filter={filter}
+              check={darkMode}
+            />
+          </>
+        )}
+
+        {resetPassword && (
+          <>
+            <ResetPassword resetFunction={handleReset} />
+          </>
+        )}
+      </ThemeProvider>
     </>
   );
 };

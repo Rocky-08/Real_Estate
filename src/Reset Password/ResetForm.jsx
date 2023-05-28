@@ -1,14 +1,12 @@
 import React from "react";
-import { Box, Grid, Link } from "@material-ui/core";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
+import { Box, TextField, Button } from "@material-ui/core";
 
-const LoginForm = (prop) => {
+const ResetForm = (prop) => {
   return (
     <>
       <Box
         component="form"
-        onSubmit={prop.submitFunc}
+        onSubmit={prop.resetFunction}
         noValidate
         sx={{ mt: 1 }}
       >
@@ -30,9 +28,22 @@ const LoginForm = (prop) => {
           variant="outlined"
           fullWidth
           id="password"
-          label="Password"
-          name="password"
+          label="Enter New Password"
           type="password"
+          name="password"
+          autoComplete="current-password"
+          autoFocus
+        />
+
+        <TextField
+          margin="normal"
+          required
+          variant="outlined"
+          fullWidth
+          type="password"
+          id="confirmPassword"
+          label="Confirm Password"
+          name="confirmPassword"
           autoComplete="current-password"
           autoFocus
         />
@@ -47,23 +58,11 @@ const LoginForm = (prop) => {
             marginTop: "2rem",
           }}
         >
-          Login
+          Reset Password
         </Button>
-        <Grid container style={{ marginTop: "2rem" }}>
-          <Grid item xs onClick={prop.handlereset}>
-            <Link href="#" variant="body2" to="/resetPassword">
-              Forgot password?
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="#" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
-          </Grid>
-        </Grid>
       </Box>
     </>
   );
 };
 
-export default LoginForm;
+export default ResetForm;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, FormControl } from "@material-ui/core";
+import { Button, Container } from "@mui/material";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import FilterBox from "./FilterBox";
 
@@ -11,8 +11,10 @@ const FilterFeature = (prop) => {
           <Container align="center">
             <h3>
               Search PG's by Filters
-              <Button style={{ color: "black" }} onClick={prop.openFilterBox}>
-                <FilterListIcon />
+              <Button onClick={prop.openFilterBox}>
+                <FilterListIcon
+                  style={{ color: prop.check ? "white" : "black" }}
+                />
               </Button>
             </h3>
           </Container>

@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Grid,
-  InputLabel,
-  Select,
-  MenuItem,
-  FormControl,
-} from "@material-ui/core";
+import { Grid, InputLabel, Select, MenuItem, FormControl } from "@mui/material";
 import FilterData from "./FilterData";
 
 const FilterBox = () => {
